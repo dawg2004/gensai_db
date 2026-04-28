@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>活用事例 | 減災教育普及協会</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans JP',sans-serif;color:#1a2f3a;background:#fff;overflow-x:hidden;line-height:1.7}
+a{text-decoration:none;color:inherit}
+
+:root{
+ --navy:#0d2137;
+ --blue:#0284c7;
+ --blue2:#38bdf8;
+ --blue-light:#e0f2fe;
+ --blue-mid:#bae6fd;
+ --green:#2e8b57;
+ --green-light:#e8f5ee;
+ --orange:#e8621a;
+ --orange-light:#fff4ed;
+ --gray:#f5f7fa;
+ --gray2:#e8ecf0;
+ --text:#1a2f3a;
+ --text2:#4a6070;
+ --text3:#7a96a8;
+ --white:#fff;
+ --shadow:0 4px 24px rgba(13,33,55,.08);
+ --shadow-lg:0 8px 48px rgba(13,33,55,.14);
+}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(13,33,55,.97);backdrop-filter:blur(12px);padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid var(--blue)}
+.nav-logo{display:flex;flex-direction:column}
+.nav-logo-text{color:#fff;font-size:14px;font-weight:700}
+.nav-logo-sub{color:var(--blue2);font-size:10px;font-weight:400}
+.nav-links{display:flex;gap:2px;align-items:center}
+.nav-links a{color:rgba(255,255,255,.75);font-size:12px;font-weight:500;padding:6px 10px;border-radius:6px;transition:.2s;white-space:nowrap}
+.nav-links a:hover,.nav-links a.active{color:#fff;background:rgba(255,255,255,.1)}
+.nav-cta{background:var(--blue)!important;color:#fff!important;padding:8px 16px!important;border-radius:20px!important;font-weight:700!important}
+.nav-cta:hover{background:var(--blue2)!important;color:var(--navy)!important}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px}
+.nav-hamburger span{width:24px;height:2px;background:#fff;border-radius:2px}
+
+/* HERO */
+.hero{
+ padding:120px 24px 72px;
+ background:linear-gradient(150deg,#f0f9ff 0%,#e0f2fe 50%,#e8f5ee 100%);
+ text-align:center;
+ position:relative;overflow:hidden;
+}
+.hero::before{
+ content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);
+ width:600px;height:600px;border-radius:50%;
+ background:radial-gradient(circle,rgba(2,132,199,.06) 0%,transparent 70%);
+}
+.breadcrumb{display:flex;align-items:center;justify-content:center;gap:8px;font-size:12px;color:var(--text3);margin-bottom:20px}
+.breadcrumb a{color:var(--blue);transition:.2s}
+.breadcrumb a:hover{color:var(--navy)}
+.breadcrumb span{color:var(--text3)}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(2,132,199,.1);border:1px solid rgba(2,132,199,.3);color:var(--blue);font-size:12px;font-weight:700;padding:6px 14px;border-radius:20px;margin-bottom:20px;letter-spacing:.05em}
+.hero h1{font-size:clamp(28px,4vw,48px);font-weight:900;color:var(--navy);line-height:1.2;margin-bottom:16px;font-family:'Noto Serif JP',serif}
+.hero h1 .accent{color:var(--blue)}
+.hero-sub{font-size:16px;color:var(--text2);max-width:600px;margin:0 auto 32px;line-height:1.8}
+
+/* FILTER TABS */
+.filter-wrap{background:#fff;border-bottom:1px solid var(--gray2);padding:0 24px;position:sticky;top:64px;z-index:90;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.filter-inner{max-width:1200px;margin:0 auto;display:flex;gap:4px;padding:12px 0;overflow-x:auto}
+.filter-btn{padding:8px 20px;border-radius:20px;font-size:13px;font-weight:600;border:2px solid var(--gray2);color:var(--text2);cursor:pointer;transition:.2s;background:#fff;white-space:nowrap;font-family:inherit}
+.filter-btn:hover{border-color:var(--blue);color:var(--blue)}
+.filter-btn.active{background:var(--blue);border-color:var(--blue);color:#fff}
+.filter-btn.gov.active{background:#1a5fa8;border-color:#1a5fa8}
+.filter-btn.school.active{background:var(--green);border-color:var(--green)}
+.filter-btn.corp.active{background:var(--orange);border-color:var(--orange)}
+
+/* CONTAINER */
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+section{padding:64px 24px}
+
+/* STATS BAR */
+.stats-bar{background:var(--navy);padding:32px 24px}
+.stats-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:center;align-items:center;gap:0;text-align:center;flex-wrap:nowrap}
+.stat-item{flex-shrink:0}.stat-item .num{font-size:36px;font-weight:900;color:var(--blue2);font-family:'Noto Serif JP',serif;line-height:1}
+.stat-item .num span{font-size:18px}
+.stat-item .label{font-size:12px;color:rgba(255,255,255,.6);margin-top:6px}
+.stat-div{width:1px;min-height:60px;background:rgba(255,255,255,.15);flex-shrink:0;margin:0 32px}
+
+/* CATEGORY SECTION */
+.cat-header{display:flex;align-items:center;gap:16px;margin-bottom:32px;padding-bottom:20px;border-bottom:2px solid var(--gray2)}
+.cat-label{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px}
+.cat-label.gov{color:var(--blue)}
+.cat-label.school{color:var(--green)}
+.cat-label.corp{color:var(--orange)}
+.cat-title{font-size:22px;font-weight:700;color:var(--navy)}
+.cat-count{margin-left:auto;font-size:13px;color:var(--text3);font-weight:500}
+
+/* CASE CARDS */
+.cases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:64px}
+.case-card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--gray2);transition:.3s;cursor:pointer}
+.case-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-6px)}
+.case-card-top{height:100px;display:flex;align-items:flex-end;padding:16px;position:relative;overflow:hidden}
+.case-card-top.gov{background:linear-gradient(135deg,#1a3a52 0%,#0d2137 100%)}
+.case-card-top.school{background:linear-gradient(135deg,#1a4a2a 0%,#2e8b57 100%)}
+.case-card-top.corp{background:linear-gradient(135deg,#7a2a10 0%,#e8621a 100%)}
+.case-card-top::before{content:'';position:absolute;top:-20px;right:-20px;width:100px;height:100px;border-radius:50%;background:rgba(255,255,255,.06)}
+.case-tag{display:inline-block;font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;margin-bottom:8px}
+.case-tag.gov{background:rgba(2,132,199,.2);color:#7dd3fc}
+.case-tag.school{background:rgba(46,139,87,.2);color:#86efac}
+.case-tag.corp{background:rgba(232,98,26,.2);color:#fed7aa}
+.case-org{font-size:18px;font-weight:700;color:#fff;line-height:1.3}
+.case-card-body{padding:22px}
+.case-title{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:10px;line-height:1.5}
+.case-text{font-size:13px;color:var(--text2);line-height:1.8;margin-bottom:16px}
+.case-results{display:flex;flex-direction:column;gap:8px}
+.case-result-item{display:flex;align-items:center;gap:10px;background:var(--gray);border-radius:8px;padding:8px 12px}
+.result-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.result-dot.gov{background:var(--blue)}
+.result-dot.school{background:var(--green)}
+.result-dot.corp{background:var(--orange)}
+.result-text{font-size:12px;color:var(--text2);line-height:1.5}
+.result-text strong{color:var(--navy);font-weight:700}
+.case-card-footer{padding:16px 22px;border-top:1px solid var(--gray2);display:flex;align-items:center;justify-content:space-between}
+.case-meta{font-size:11px;color:var(--text3)}
+.case-link{font-size:12px;font-weight:700;color:var(--blue);display:flex;align-items:center;gap:4px}
+.case-link svg{transition:.2s}
+.case-card:hover .case-link svg{transform:translateX(3px)}
+
+/* FEATURED CASE */
+.featured-case{background:linear-gradient(135deg,#0d2137 0%,#0a3d5c 100%);border-radius:20px;padding:40px;margin-bottom:64px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.featured-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(2,132,199,.2);border:1px solid rgba(2,132,199,.4);color:var(--blue2);font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;margin-bottom:16px;letter-spacing:.05em}
+.featured-case h3{font-size:24px;font-weight:700;color:#fff;line-height:1.4;margin-bottom:12px;font-family:'Noto Serif JP',serif}
+.featured-case p{font-size:14px;color:rgba(255,255,255,.7);line-height:1.8;margin-bottom:24px}
+.featured-stats{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fstat{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:14px}
+.fstat .fn{font-size:26px;font-weight:900;color:var(--blue2);font-family:'Noto Serif JP',serif;line-height:1}
+.fstat .fl{font-size:11px;color:rgba(255,255,255,.6);margin-top:4px}
+.featured-right{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:28px}
+.featured-timeline{display:flex;flex-direction:column;gap:0}
+.tl-item{display:flex;gap:16px;padding-bottom:24px;position:relative}
+.tl-item:last-child{padding-bottom:0}
+.tl-item:not(:last-child)::before{content:'';position:absolute;left:15px;top:32px;bottom:0;width:2px;background:rgba(255,255,255,.1)}
+.tl-dot{width:32px;height:32px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;font-weight:700;color:#fff}
+.tl-content{flex:1}
+.tl-date{font-size:11px;color:rgba(255,255,255,.5);margin-bottom:4px}
+.tl-text{font-size:13px;color:rgba(255,255,255,.85);line-height:1.6;font-weight:500}
+
+/* VOICE */
+.voices-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:32px}
+.voice-card{background:#fff;border-radius:14px;padding:24px;box-shadow:var(--shadow);border-left:4px solid var(--blue)}
+.voice-card.school{border-left-color:var(--green)}
+.voice-card.corp{border-left-color:var(--orange)}
+.voice-text{font-size:14px;color:var(--text);line-height:1.8;font-style:italic;margin-bottom:16px}
+.voice-author{display:flex;align-items:center;gap:10px}
+.voice-avatar{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;flex-shrink:0}
+.voice-avatar.gov{background:var(--blue)}
+.voice-avatar.school{background:var(--green)}
+.voice-avatar.corp{background:var(--orange)}
+.voice-name{font-size:13px;font-weight:700;color:var(--navy)}
+.voice-role{font-size:11px;color:var(--text3)}
+
+/* CTA */
+.cta-section{background:linear-gradient(150deg,#e0f2fe 0%,#e8f5ee 100%);text-align:center;border-radius:20px;padding:56px 40px;margin:0 24px 64px}
+.cta-section h2{font-size:28px;font-weight:700;color:var(--navy);margin-bottom:12px;font-family:'Noto Serif JP',serif}
+.cta-section p{font-size:15px;color:var(--text2);margin-bottom:32px;line-height:1.8}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:var(--blue);color:#fff;padding:14px 32px;border-radius:8px;font-size:15px;font-weight:700;transition:.2s;display:inline-flex;align-items:center;gap:8px;box-shadow:0 4px 20px rgba(2,132,199,.3)}
+.btn-primary:hover{background:#0369a1;transform:translateY(-2px)}
+.btn-secondary{background:#fff;color:var(--navy);border:2px solid var(--gray2);padding:13px 28px;border-radius:8px;font-size:15px;font-weight:600;transition:.2s;display:inline-flex;align-items:center;gap:8px}
+.btn-secondary:hover{border-color:var(--blue);color:var(--blue)}
+
+/* FOOTER */
+footer{background:var(--navy);color:rgba(255,255,255,.7);padding:48px 24px 24px}
+.footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:24px}
+.footer-brand .logo{font-size:16px;font-weight:700;color:#fff;margin-bottom:8px}
+.footer-brand .logo span{color:var(--blue2)}
+.footer-brand p{font-size:13px;line-height:1.8}
+footer h4{font-size:13px;font-weight:700;color:#fff;margin-bottom:14px}
+footer ul{list-style:none}
+footer ul li{margin-bottom:8px}
+footer ul li a{font-size:13px;color:rgba(255,255,255,.6);transition:.2s}
+footer ul li a:hover{color:var(--blue2)}
+.footer-bottom{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:rgba(255,255,255,.4)}
+
+/* FLOATING */
+.floating-cta{position:fixed;bottom:24px;right:24px;z-index:99;opacity:0;transition:opacity .3s;pointer-events:none}
+.floating-cta.visible{opacity:1;pointer-events:all}
+.float-btn{display:flex;align-items:center;gap:8px;padding:12px 20px;border-radius:30px;font-size:13px;font-weight:700;background:var(--blue);color:#fff;box-shadow:0 4px 20px rgba(2,132,199,.4);cursor:pointer;transition:.2s}
+.float-btn:hover{background:#0369a1;transform:translateY(-2px)}
+
+/* ANIMATIONS */
+.fade-up{opacity:0;transform:translateY(24px);transition:.6s cubic-bezier(.25,.8,.25,1)}
+.fade-up.visible{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+ .cases-grid{grid-template-columns:1fr 1fr}
+ .featured-case{grid-template-columns:1fr}
+ .voices-grid{grid-template-columns:1fr}
+ .stats-inner{flex-wrap:wrap;gap:16px}
+ .footer-grid{grid-template-columns:1fr 1fr}
+ .nav-links{display:none}
+ .nav-hamburger{display:flex}
+}
+@media(max-width:600px){
+ .cases-grid{grid-template-columns:1fr}
+ .stats-inner{grid-template-columns:1fr 1fr}
+ .featured-stats{grid-template-columns:1fr 1fr}
+ .cta-section{padding:36px 20px;margin:0 16px 48px}
+ .footer-grid{grid-template-columns:1fr}
+ section{padding:48px 16px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+ <div class="nav-logo">
+ <div class="nav-logo-text">減災教育普及協会</div>
+ <div class="nav-logo-sub">NPO法人 | Disaster Education Association</div>
+ </div>
+ <div class="nav-links">
+ <a href="index.html">トップ</a>
+ <a href="#" class="active">活動内容</a>
+ <a href="cases.html" class="active">導入事例</a>
+ <a href="#">データベース</a>
+ <a href="#">協会について</a>
+ <a href="index.html#contact" class="nav-cta">相談する</a>
+ </div>
+ <div class="nav-hamburger" onclick="toggleMenu()">
+ <span></span><span></span><span></span>
+ </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+ <div class="breadcrumb">
+ <a href="index.html">トップ</a>
+ <span>/</span>
+ <span>活用事例</span>
+ </div>
+ <div class="hero-badge">全国の導入実績</div>
+ <h1>自治体・学校・企業の<br><span class="accent">活用事例</span></h1>
+ <p class="hero-sub">全国各地での減災教育プログラムの導入事例をご紹介します<br>あなたの組織に合った活用イメージが見つかります</p>
+</div>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+ <div class="stats-inner">
+ <div class="stat-item">
+ <div class="num">47<span>都道府県</span></div>
+ <div class="label">全国ネットワーク</div>
+ </div>
+ <div class="stat-div"></div>
+ <div class="stat-item">
+ <div class="num">200<span>件+</span></div>
+ <div class="label">累計プログラム実施数</div>
+ </div>
+ <div class="stat-div"></div>
+ <div class="stat-item">
+ <div class="num">98<span>%</span></div>
+ <div class="label">参加者満足度（アンケート回答）</div>
+ </div>
+ <div class="stat-div"></div>
+ <div class="stat-item">
+ <div class="num">20<span>年+</span></div>
+ <div class="label">活動実績</div>
+ </div>
+ </div>
+</div>
+
+<!-- FILTER -->
+<div class="filter-wrap">
+ <div class="filter-inner">
+ <button class="filter-btn active" onclick="filterCases('all',this)">すべて</button>
+ <button class="filter-btn gov" onclick="filterCases('gov',this)">自治体・行政</button>
+ <button class="filter-btn school" onclick="filterCases('school',this)">学校・教育機関</button>
+ <button class="filter-btn corp" onclick="filterCases('corp',this)">企業・法人</button>
+ </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div style="background:#f5f7fa;padding:56px 0">
+
+ <!-- FEATURED: 徳島県 -->
+ <div class="container fade-up">
+ <div class="featured-case" id="featured-case">
+ <div>
+ <div class="featured-badge">注目事例 / 自治体</div>
+ <h3>徳島県との連携協力協定締結</h3>
+ <p>後藤田知事と江夏理事長のもと徳島県と連携協力協定を締結県全体の防災教育力向上に向けた包括的な取り組みがスタートしました全国初のモデルケースとして注目されています</p>
+ <div class="featured-stats">
+ <div class="fstat">
+ <div class="fn">県内全域</div>
+ <div class="fl">展開エリア</div>
+ </div>
+ <div class="fstat">
+ <div class="fn">包括協定</div>
+ <div class="fl">連携形式</div>
+ </div>
+ <div class="fstat">
+ <div class="fn">学校全校</div>
+ <div class="fl">導入対象</div>
+ </div>
+ <div class="fstat">
+ <div class="fn">継続中</div>
+ <div class="fl">現在の状況</div>
+ </div>
+ </div>
+ </div>
+ <div class="featured-right">
+ <div style="font-size:13px;font-weight:700;color:var(--blue2);margin-bottom:20px;letter-spacing:.05em">連携の経緯</div>
+ <div class="featured-timeline">
+ <div class="tl-item">
+ <div class="tl-dot">01</div>
+ <div class="tl-content">
+ <div class="tl-date">2024年 初回接触</div>
+ <div class="tl-text">県の防災担当部署から協会へ防災教育強化の相談</div>
+ </div>
+ </div>
+ <div class="tl-item">
+ <div class="tl-dot">02</div>
+ <div class="tl-content">
+ <div class="tl-date">2024年 試験導入</div>
+ <div class="tl-text">県内3校でYURETA体験授業を試験的に実施教員・生徒から高評価</div>
+ </div>
+ </div>
+ <div class="tl-item">
+ <div class="tl-dot">03</div>
+ <div class="tl-content">
+ <div class="tl-date">2025年 協定締結</div>
+ <div class="tl-text">後藤田知事と江夏理事長が連携協力協定に署名全県展開へ</div>
+ </div>
+ </div>
+ <div class="tl-item">
+ <div class="tl-dot">04</div>
+ <div class="tl-content">
+ <div class="tl-date">現在 展開中</div>
+ <div class="tl-text">全県の学校・自治体職員研修・地域防災ワークショップを順次展開</div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <!-- 自治体カテゴリ -->
+ <section class="container" id="cat-gov" data-cat="gov">
+ <div class="cat-header fade-up" data-cat="gov">
+ <div>
+ <div class="cat-label gov">自治体・行政</div>
+ <div class="cat-title">全国自治体との連携実績</div>
+ </div>
+ <div class="cat-count">3件の事例</div>
+ </div>
+ <div class="cases-grid">
+
+ <div class="case-card fade-up" data-cat="gov">
+ <div class="case-card-top gov">
+ <div>
+ <div class="case-tag gov">自治体</div>
+ <div class="case-org">徳島県</div>
+ </div>
+ </div>
+ <div class="case-card-body">
+ <div class="case-title">連携協力協定締結・県全体の防災教育強化</div>
+ <div class="case-text">南海トラフ地震への備えとして県全体の防災教育力強化を目的に協定を締結学校・地域・企業をつなぐ包括的な防災エコシステムを構築中</div>
+ <div class="case-results">
+ <div class="case-result-item">
+ <div class="result-dot gov"></div>
+ <div class="result-text"><strong>県内全学校</strong>への防災教育プログラム展開</div>
+ </div>
+ <div class="case-result-item">
+ <div class="result-dot gov"></div>
+ <div class="result-text"><strong>自治体職員研修</strong>を年2回定期開催</div>
+ </div>
+ </div>
+ </div>
+ <div class="case-card-footer">
+ <div class="case-meta">2025年 / 包括協定</div>
+ <div class="case-link">詳細を見る <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="#0284c7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+ </div>
+ </div>
+
+ <div class="case-card fade-up" data-cat="gov">
+ <div class="case-card-top gov">
+ <div>
+ <div class="case-tag gov">自治体</div>
+ <div class="case-org">関西圏 政令市</div>
+ </div>
+ </div>
+ <div class="case-card-body">
+ <div class="case-title">市民向け防災ワークショップの年間実施</div>
+ <div class="case-text">人口50万人規模の政令市で地域ごとの防災ワークショップを年間12回実施参加者の行動変容データを蓄積し次年度のプログラム改善に活用</div>
+ <div class="case-results">
+ <div class="case-result-item">
+ <div class="result-dot gov"></div>
+ <div class="result-text">年間参加者<strong>3,000名超</strong>を達成</div>
+ </div>
+ <div class="case-result-item">
+ <div class="result-dot gov"></div>
+ <div class="result-text">参加者の<strong>87%</strong>が行動変容を実感</div>
+ </div>
+ </div>
+ </div>
+ <div class="case-card-footer">
+ <div class="case-meta">2023年継続 / 委託事業</div>
+ <div class="case-link">詳細を見る <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="#0284c7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+ </div>
+ </div>
+
+ <div class="case-card fade-up" data-cat="gov">
+ <div class="case-card-top gov">
+ <div>
+ <div class="case-tag gov">教育委員会</div>
+ <div class="case-org">四国地方 教育委員会</div>
+ </div>
+ </div>
+ <div class="case-card-body">
+ <div class="case-title">小中学校向け防災教育カリキュラム共同開発</div>
+ <div class="case-text">管内80校の小中学校に対応した防災教育カリキュラムを共同開発年齢別に段階的に学べる構成で教員研修もセットで提供</div>
+ <div class="case-results">
+ <div class="case-result-item">
+ <div class="result-dot gov"></div>
+ <div class="result-text"><strong>80校</strong>全校への導入完了</div>
+ </div>
+ <div class="case-result-item">
+ <div class="result-dot gov"></div>
+ <div class="result-text">教員満足度<strong>96%</strong>・継続利用中</div>
+ </div>
+ </div>
+ </div>
+ <div class="case-card-footer">
+ <div class="case-meta">2024年 / カリキュラム開発</div>
+ <div class="case-link">詳細を見る <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="#0284c7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+ </div>
+ </div>
+
+ </div>
+
+ <!-- 学校カテゴリ -->
+ <div class="cat-header fade-up" id="cat-school" data-cat="school" style="display:flex">
+ <div>
+ <div class="cat-label school">学校・教育機関</div>
+ <div class="cat-title">子どもたちへの実践型防災教育</div>
+ </div>
+ <div class="cat-count">3件の事例</div>
+ </div>
+ <div class="cases-grid">
+
+ <div class="case-card fade-up" data-cat="school">
+ <div class="case-card-top school">
+ <div>
+ <div class="case-tag school">小学校</div>
+ <div class="case-org">東海地方 市立小学校</div>
+ </div>
+ </div>
+ <div class="case-card-body">
+ <div class="case-title">YURETA体験会×防災授業の実施</div>
+ <div class="case-text">全校児童600名を対象にYURETA体験会と連動した防災授業を実施自分ごととして考える体験型プログラムで子どもから家族への防災啓発につなげた</div>
+ <div class="case-results">
+ <div class="case-result-item">
+ <div class="result-dot school"></div>
+ <div class="result-text">家族に防災の話をした児童<strong>92%</strong></div>
+ </div>
+ <div class="case-result-item">
+ <div class="result-dot school"></div>
+ <div class="result-text">保護者アンケート満足度<strong>98%</strong></div>
+ </div>
+ </div>
+ </div>
+ <div class="case-card-footer">
+ <div class="case-meta">2024年 / 体験型授業</div>
+ <div class="case-link">詳細を見る <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="#2e8b57" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+ </div>
+ </div>
+
+ <div class="case-card fade-up" data-cat="school">
+ <div class="case-card-top school">
+ <div>
+ <div class="case-tag school">高校</div>
+ <div class="case-org">近畿地方 私立高校</div>
+ </div>
+ </div>
+ <div class="case-card-body">
+ <div class="case-title">高校生向け防災リーダー育成プログラム</div>
+ <div class="case-text">防災に関心の高い高校生を対象に地域の防災リーダーとして活躍できる人材育成プログラムを実施地域住民へのワークショップ開催も体験</div>
+ <div class="case-results">
+ <div class="case-result-item">
+ <div class="result-dot school"></div>
+ <div class="result-text">受講生<strong>全員</strong>が地域防災活動に参加</div>
+ </div>
+ <div class="case-result-item">
+ <div class="result-dot school"></div>
+ <div class="result-text">生徒主体の<strong>地域防災ワーク</strong>を実現</div>
+ </div>
+ </div>
+ </div>
+ <div class="case-card-footer">
+ <div class="case-meta">2023年継続 / 人材育成</div>
+ <div class="case-link">詳細を見る <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="#2e8b57" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+ </div>
+ </div>
+
+ <div class="case-card fade-up" data-cat="school">
+ <div class="case-card-top school">
+ <div>
+ <div class="case-tag school">大学</div>
+ <div class="case-org">関東地方 国立大学</div>
+ </div>
+ </div>
+ <div class="case-card-body">
+ <div class="case-title">防災教育の共同研究・データ活用</div>
+ <div class="case-text">防災科学の研究室と共同で避難行動データの分析研究を実施協会が保有するビッグデータを活用した研究が査読付き論文として掲載</div>
+ <div class="case-results">
+ <div class="case-result-item">
+ <div class="result-dot school"></div>
+ <div class="result-text">査読付き論文<strong>3本</strong>を共同執筆</div>
+ </div>
+ <div class="case-result-item">
+ <div class="result-dot school"></div>
+ <div class="result-text">研究成果が<strong>文科省の政策立案</strong>に活用</div>
+ </div>
+ </div>
+ </div>
+ <div class="case-card-footer">
+ <div class="case-meta">2023年継続 / 共同研究</div>
+ <div class="case-link">詳細を見る <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="#2e8b57" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+ </div>
+ </div>
+
+ </div>
+
+ <!-- 企業カテゴリ -->
+ <div class="cat-header fade-up" id="cat-corp" data-cat="corp" style="display:flex">
+ <div>
+ <div class="cat-label corp">企業・法人</div>
+ <div class="cat-title">企業の防災・BCP強化</div>
+ </div>
+ <div class="cat-count">3件の事例</div>
+ </div>
+ <div class="cases-grid">
+
+ <div class="case-card fade-up" data-cat="corp">
+ <div class="case-card-top corp">
+ <div>
+ <div class="case-tag corp">製造業</div>
+ <div class="case-org">大手製造業（東証プライム）</div>
+ </div>
+ </div>
+ <div class="case-card-body">
+ <div class="case-title">全国10拠点 従業員向けBCP研修</div>
+ <div class="case-text">全国10拠点・従業員5,000名を対象にYURETA体験＋専門講師のセット研修を実施形式的だった年1回の避難訓練を実効性ある研修プログラムに刷新した</div>
+ <div class="case-results">
+ <div class="case-result-item">
+ <div class="result-dot corp"></div>
+ <div class="result-text">防災意識スコア<strong>42%向上</strong></div>
+ </div>
+ <div class="case-result-item">
+ <div class="result-dot corp"></div>
+ <div class="result-text">BCP策定完了・<strong>役員評価A</strong>獲得</div>
+ </div>
+ </div>
+ </div>
+ <div class="case-card-footer">
+ <div class="case-meta">2024年 / BCP研修</div>
+ <div class="case-link">詳細を見る <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="#e8621a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+ </div>
+ </div>
+
+ <div class="case-card fade-up" data-cat="corp">
+ <div class="case-card-top corp">
+ <div>
+ <div class="case-tag corp">保険会社</div>
+ <div class="case-org">大手損保会社</div>
+ </div>
+ </div>
+ <div class="case-card-body">
+ <div class="case-title">地域リスクデータを活用した保険商品開発</div>
+ <div class="case-text">協会が保有する地域別被害想定データを活用しより精緻なリスク査定に基づく保険商品を共同開発データライセンス契約を締結し継続的な提供を実施中</div>
+ <div class="case-results">
+ <div class="case-result-item">
+ <div class="result-dot corp"></div>
+ <div class="result-text">新商品が<strong>業界初</strong>の防災スコア連動型</div>
+ </div>
+ <div class="case-result-item">
+ <div class="result-dot corp"></div>
+ <div class="result-text">データライセンス契約<strong>年間継続中</strong></div>
+ </div>
+ </div>
+ </div>
+ <div class="case-card-footer">
+ <div class="case-meta">2024年継続 / データ連携</div>
+ <div class="case-link">詳細を見る <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="#e8621a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+ </div>
+ </div>
+
+ <div class="case-card fade-up" data-cat="corp">
+ <div class="case-card-top corp">
+ <div>
+ <div class="case-tag corp">住宅・不動産</div>
+ <div class="case-org">大手住宅メーカー</div>
+ </div>
+ </div>
+ <div class="case-card-body">
+ <div class="case-title">住宅購入者向け防災セミナーの共催</div>
+ <div class="case-text">住宅展示場でのYURETA体験コーナー設置と購入者向け防災セミナーを共催防災仕様住宅の差別化ポイントとして活用し顧客満足度向上に貢献</div>
+ <div class="case-results">
+ <div class="case-result-item">
+ <div class="result-dot corp"></div>
+ <div class="result-text">展示場来場者<strong>30%増</strong>を達成</div>
+ </div>
+ <div class="case-result-item">
+ <div class="result-dot corp"></div>
+ <div class="result-text">購入者満足度調査で防災項目<strong>1位</strong></div>
+ </div>
+ </div>
+ </div>
+ <div class="case-card-footer">
+ <div class="case-meta">2023年継続 / 共催イベント</div>
+ <div class="case-link">詳細を見る <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="#e8621a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+ </div>
+ </div>
+
+ </div>
+ </section>
+
+ <!-- 導入者の声 -->
+ <section style="padding:0 0 64px">
+ <div class="container">
+ <div style="text-align:center;margin-bottom:36px" class="fade-up">
+ <div style="font-size:11px;font-weight:700;letter-spacing:.15em;color:var(--blue);margin-bottom:8px;text-transform:uppercase">導入者の声</div>
+ <h2 style="font-size:28px;font-weight:700;color:var(--navy);font-family:'Noto Serif JP',serif">現場からの声</h2>
+ </div>
+ <div class="voices-grid fade-up">
+ <div class="voice-card">
+ <div class="voice-text">単なる避難訓練とは全く違う子どもたちが自分で考え判断する力が育ちます保護者からも子どもが家で防災の話をするようになったと好評です</div>
+ <div class="voice-author">
+ <div class="voice-avatar school">先</div>
+ <div>
+ <div class="voice-name">小学校 教頭</div>
+ <div class="voice-role">東海地方 / YURETA体験授業</div>
+ </div>
+ </div>
+ </div>
+ <div class="voice-card gov">
+ <div class="voice-text">協会のデータベースを活用することで私たちの地域特有のリスクに合わせた防災施策が立案できるようになりましたエビデンスベースの政策立案が実現しています</div>
+ <div class="voice-author">
+ <div class="voice-avatar gov">行</div>
+ <div>
+ <div class="voice-name">県防災担当課長</div>
+ <div class="voice-role">四国地方 / 自治体連携</div>
+ </div>
+ </div>
+ </div>
+ <div class="voice-card corp">
+ <div class="voice-text">毎年同じ訓練に課題を感じていましたがYURETA体験を取り入れたことで社員の防災意識が劇的に変わりましたBCPの実効性が上がったと役員も評価しています</div>
+ <div class="voice-author">
+ <div class="voice-avatar corp">総</div>
+ <div>
+ <div class="voice-name">総務部長</div>
+ <div class="voice-role">大手製造業 / BCP研修</div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
+
+</div>
+
+<!-- CTA -->
+<div class="container">
+ <div class="cta-section fade-up">
+ <h2>あなたの組織でも<br>始めてみませんか？</h2>
+ <p>自治体・学校・企業どのような組織でも対応可能です<br>まずはお気軽にご相談ください2営業日以内にご連絡します</p>
+ <div class="cta-btns">
+ <a href="index.html#contact" class="btn-primary">無料相談を申し込む</a>
+ <a href="index.html#services" class="btn-secondary">活動内容を見る</a>
+ </div>
+ </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+ <div class="footer-grid">
+ <div class="footer-brand">
+ <div class="logo">減災教育普及<span>協会</span></div>
+ <p>NPO法人 減災教育普及協会<br>災害から命を守る力を教育で育てる</p>
+ </div>
+ <div>
+ <h4>活動内容</h4>
+ <ul>
+ <li><a href="#">学校向けプログラム</a></li>
+ <li><a href="#">企業向け研修</a></li>
+ <li><a href="#">地域ワークショップ</a></li>
+ <li><a href="#">YURETA体験会</a></li>
+ </ul>
+ </div>
+ <div>
+ <h4>協会について</h4>
+ <ul>
+ <li><a href="#">協会概要</a></li>
+ <li><a href="#">理事長・スタッフ</a></li>
+ <li><a href="cases.html">導入事例</a></li>
+ <li><a href="#">お知らせ</a></li>
+ </ul>
+ </div>
+ <div>
+ <h4>参加・支援</h4>
+ <ul>
+ <li><a href="#">賛助会員になる</a></li>
+ <li><a href="#">寄付・支援</a></li>
+ <li><a href="index.html#contact">お問い合わせ</a></li>
+ </ul>
+ </div>
+ </div>
+ <div class="footer-bottom">
+ <span>© 2024 NPO法人 減災教育普及協会. All rights reserved.</span>
+ <span>Powered by YURETA Platform</span>
+ </div>
+</footer>
+
+<!-- FLOATING CTA -->
+<div class="floating-cta" id="floatCta">
+ <a href="index.html#contact" class="float-btn">相談する</a>
+</div>
+
+<script>
+// Scroll animation
+const observer = new IntersectionObserver((entries) => {
+ entries.forEach((e,i) => {
+ if(e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i*80);
+ });
+}, {threshold:0.1});
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// Filter
+function filterCases(cat, btn) {
+  // ボタン切替
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  // 注目事例：すべてのときだけ表示
+  const featured = document.getElementById('featured-case');
+  if(featured) featured.style.display = (cat === 'all') ? 'grid' : 'none';
+
+  // カードの表示切替
+  document.querySelectorAll('.case-card').forEach(el => {
+    if(cat === 'all' || el.dataset.cat === cat) {
+      el.style.display = 'block';
+    } else {
+      el.style.display = 'none';
+    }
+  });
+
+  // カテゴリヘッダーの表示切替
+  document.querySelectorAll('.cat-header').forEach(el => {
+    if(cat === 'all' || el.dataset.cat === cat) {
+      el.style.display = 'flex';
+    } else {
+      el.style.display = 'none';
+    }
+  });
+}
+
+// Floating CTA
+window.addEventListener('scroll', () => {
+ document.getElementById('floatCta').classList.toggle('visible', window.scrollY > 400);
+});
+
+// Mobile menu
+function toggleMenu(){
+ const links = document.querySelector('.nav-links');
+ if(links.style.display === 'flex'){
+ links.style.display = '';
+ } else {
+ links.style.cssText = 'display:flex;flex-direction:column;position:absolute;top:64px;left:0;right:0;background:rgba(13,33,55,.97);padding:16px;gap:4px;z-index:99';
+ }
+}
+</script>
+</body>
+</html>
