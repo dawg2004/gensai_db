@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>減災教育普及協会 | 災害から命を守る力を教育で育てる</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ── RESET & BASE ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans JP',sans-serif;color:#1a2f3a;background:#fff;overflow-x:hidden;line-height:1.7}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+
+/* ── CSS VARIABLES ── */
+:root{
+ --navy:#0d2137;
+ --navy2:#1a3a52;
+ --teal:#0284c7;
+ --teal2:#38bdf8;
+ --teal-light:#e0f2fe;
+ --orange:#e8621a;
+ --orange-light:#fff4ed;
+ --blue:#1a5fa8;
+ --blue-light:#e8f0fb;
+ --green:#2e8b57;
+ --green-light:#e8f5ee;
+ --gray:#f5f7fa;
+ --gray2:#e8ecf0;
+ --text:#1a2f3a;
+ --text2:#4a6070;
+ --text3:#7a96a8;
+ --white:#ffffff;
+ --shadow:0 4px 24px rgba(13,33,55,.10);
+ --shadow-lg:0 8px 48px rgba(13,33,55,.16);
+}
+
+/* ── NAV ── */
+nav{
+ position:fixed;top:0;left:0;right:0;z-index:100;
+ background:rgba(13,33,55,.97);
+ backdrop-filter:blur(12px);
+ padding:0 24px;
+ height:64px;display:flex;align-items:center;justify-content:space-between;
+ border-bottom:2px solid var(--teal);
+}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo-text{color:#fff;font-size:13px;font-weight:700;line-height:1.3}
+.nav-logo-text span{color:var(--teal2);font-size:10px;font-weight:400;display:block}
+.nav-links{display:flex;gap:2px;align-items:center}
+.nav-links a{
+ color:rgba(255,255,255,.75);font-size:12px;font-weight:500;
+ padding:6px 10px;border-radius:6px;transition:.2s;white-space:nowrap;
+}
+.nav-links a:hover{color:#fff;background:rgba(255,255,255,.1)}
+.nav-cta{
+ background:var(--teal);color:#fff!important;
+ padding:8px 16px!important;border-radius:20px!important;
+ font-weight:700!important;font-size:12px!important;
+}
+.nav-cta:hover{background:var(--teal2)!important}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px}
+.nav-hamburger span{width:24px;height:2px;background:#fff;border-radius:2px;transition:.3s}
+
+/* ── HERO ── */
+.hero{
+ min-height:100vh;
+ background:linear-gradient(150deg, #eaf6fb 0%, #f0faf8 50%, #e8f4ff 100%);
+ display:flex;align-items:center;
+ position:relative;overflow:hidden;padding-top:64px;
+}
+.hero::before{
+ content:'';position:absolute;inset:0;
+ background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230fb39e' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.hero-container{
+ max-width:1200px;margin:0 auto;padding:80px 24px;
+ display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;
+ position:relative;z-index:1;width:100%;
+}
+.hero-badge{
+ display:inline-flex;align-items:center;gap:8px;
+ background:var(--teal-light);border:1px solid var(--teal);
+ color:var(--teal);font-size:12px;font-weight:700;
+ padding:6px 14px;border-radius:20px;margin-bottom:24px;
+ letter-spacing:.05em;
+}
+.hero-badge::before{content:'';width:6px;height:6px;background:var(--teal2);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
+.hero h1{
+ font-size:clamp(32px,4vw,52px);font-weight:900;color:var(--navy);
+ line-height:1.2;margin-bottom:20px;
+ font-family:'Noto Serif JP',serif;
+}
+.hero h1 .accent{color:var(--teal)}
+.hero-sub{
+ font-size:16px;color:var(--text2);
+ line-height:1.8;margin-bottom:36px;font-weight:300;
+}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn-primary{
+ background:var(--teal);color:#fff;
+ padding:14px 28px;border-radius:8px;font-size:15px;font-weight:700;
+ transition:.2s;display:inline-flex;align-items:center;gap:8px;
+ box-shadow:0 4px 20px rgba(2,132,199,.4);
+}
+.btn-primary:hover{background:var(--teal2);transform:translateY(-2px);box-shadow:0 8px 28px rgba(2,132,199,.5)}
+.btn-secondary{
+ background:#fff;color:var(--navy);
+ border:2px solid var(--gray2);
+ padding:13px 28px;border-radius:8px;font-size:15px;font-weight:600;
+ transition:.2s;display:inline-flex;align-items:center;gap:8px;
+}
+.btn-secondary:hover{border-color:var(--teal);color:var(--teal);background:#fff}
+.hero-stats{display:flex;gap:24px;margin-top:44px;flex-wrap:wrap}
+.hero-stat{text-align:center}
+.hero-stat .num{font-size:32px;font-weight:900;color:#0284c7;line-height:1;font-family:'Noto Serif JP',serif}
+.hero-stat .num span{font-size:16px;font-weight:500}
+.hero-stat .label{font-size:11px;color:var(--text3);margin-top:4px}
+.hero-stat-div{width:1px;background:var(--gray2);align-self:stretch}
+
+/* Hero右 ビジュアル */
+.hero-visual{position:relative}
+.hero-card{
+ background:#fff;
+ border:1px solid var(--gray2);border-radius:16px;
+ padding:28px;margin-bottom:16px;
+}
+.hero-card-title{color:var(--teal);font-size:12px;font-weight:700;letter-spacing:.1em;margin-bottom:16px;text-transform:uppercase}
+.hero-db-items{display:flex;flex-direction:column;gap:10px}
+.hero-db-item{
+ display:flex;align-items:center;gap:12px;
+ background:var(--gray);border-radius:8px;padding:10px 14px;
+ border-left:3px solid var(--teal);
+}
+.hero-db-item .icon{font-size:18px;flex-shrink:0}
+.hero-db-item .text{font-size:13px;color:var(--text);font-weight:500}
+.hero-db-item .count{margin-left:auto;font-size:13px;color:var(--teal);font-weight:700;white-space:nowrap}
+.hero-card2{
+ background:var(--orange-light);
+ border:1px solid rgba(232,98,26,.25);border-radius:12px;
+ padding:18px 20px;display:flex;align-items:center;gap:14px;
+}
+.hero-card2 .icon2{font-size:28px}
+.hero-card2 .t1{font-size:14px;font-weight:700;color:var(--navy)}
+.hero-card2 .t2{font-size:12px;color:var(--text2);margin-top:2px}
+
+/* ── SECTION BASE ── */
+section{padding:80px 24px}
+.container{max-width:1200px;margin:0 auto}
+.section-label{
+ display:inline-block;font-size:11px;font-weight:700;letter-spacing:.15em;
+ text-transform:uppercase;color:#0284c7;margin-bottom:12px;
+}
+.section-title{font-size:clamp(26px,3vw,38px);font-weight:900;line-height:1.3;margin-bottom:16px;font-family:'Noto Serif JP',serif}
+.section-sub{font-size:16px;color:var(--text2);line-height:1.8;max-width:640px}
+.section-header{margin-bottom:56px}
+.section-header.center{text-align:center}
+.section-header.center .section-sub{margin:0 auto}
+
+/* ── PROBLEM ── */
+.problem{background:#fff}
+.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.problem-quote{
+ font-size:clamp(22px,2.5vw,30px);font-weight:700;
+ line-height:1.5;color:var(--navy);
+ font-family:'Noto Serif JP',serif;
+ border-left:4px solid var(--teal);padding-left:24px;margin-bottom:28px;
+}
+.problem-text{font-size:15px;color:var(--text2);line-height:1.9;margin-bottom:20px}
+.problem-cards{display:flex;flex-direction:column;gap:14px}
+.problem-card{
+ background:#fff;border-radius:12px;padding:20px 24px;
+ display:flex;align-items:flex-start;gap:16px;
+ box-shadow:var(--shadow);border-left:4px solid var(--green);
+}
+.problem-card .icon{font-size:24px;flex-shrink:0;margin-top:2px}
+.problem-card .ttl{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:4px}
+.problem-card .txt{font-size:13px;color:var(--text2);line-height:1.7}
+
+/* ── DATABASE STRENGTH ── */
+.database{background:linear-gradient(150deg,#e8f4ff 0%,#eaf6fb 50%,#e6f7f5 100%);position:relative;overflow:hidden}
+.database::before{
+ content:'';position:absolute;top:-100px;right:-100px;
+ width:600px;height:600px;border-radius:50%;
+ background:radial-gradient(circle, rgba(2,132,199,.10) 0%, transparent 70%);
+}
+.database .section-title{color:var(--navy)}
+.database .section-sub{color:var(--text2)}
+.database .section-label{color:var(--teal)}
+.db-hero-number{
+ text-align:center;padding:48px 0;
+ border-bottom:1px solid rgba(255,255,255,.1);
+ margin-bottom:48px;
+}
+.db-hero-number .big-num{
+ font-size:clamp(80px,12vw,140px);font-weight:900;
+ color:var(--teal2);line-height:1;
+ font-family:'Noto Serif JP',serif;
+ text-shadow:0 0 60px rgba(56,189,248,.3);
+}
+.db-hero-number .big-label{font-size:20px;color:var(--text2);margin-top:8px;font-weight:300}
+.db-hero-number .big-sub{font-size:13px;color:var(--text3);margin-top:8px}
+.db-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:48px}
+.db-card{
+ background:#fff;border:1px solid var(--gray2);
+ border-radius:16px;padding:28px;transition:.3s;
+ position:relative;overflow:hidden;
+}
+.db-card::before{
+ content:'';position:absolute;top:0;left:0;right:0;height:3px;
+ background:linear-gradient(90deg,var(--teal),var(--teal2));
+}
+.db-card:hover{background:rgba(255,255,255,.08);transform:translateY(-4px)}
+.db-card .icon{font-size:32px;margin-bottom:16px}
+.db-card .ttl{font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px}
+.db-card .num{font-size:28px;font-weight:900;color:var(--teal2);margin-bottom:8px;font-family:'Noto Serif JP',serif}
+.db-card .txt{font-size:13px;color:var(--text2);line-height:1.7}
+
+.db-flow{background:#fff;border:1.5px solid #e0f2fe;border-radius:20px;padding:36px 28px}
+.db-flow-title{font-size:17px;font-weight:700;color:#0284c7;margin-bottom:28px;text-align:center;letter-spacing:.03em}
+.db-flow-items{display:flex;align-items:stretch;gap:8px;overflow-x:auto;padding-bottom:4px}
+.db-flow-item{background:linear-gradient(160deg,#f0f9ff,#e0f2fe);border:1.5px solid #bae6fd;border-radius:14px;padding:20px 14px;text-align:center;flex:1;min-width:130px;transition:.2s}
+.db-flow-item:hover{background:linear-gradient(160deg,#e0f2fe,#bae6fd);transform:translateY(-3px)}
+.db-flow-item--goal{background:linear-gradient(160deg,#0284c7,#0369a1)!important;border-color:#0284c7!important}
+.db-flow-item--goal .f-num{color:rgba(255,255,255,.7)!important}
+.db-flow-item--goal .f-ttl{color:#fff!important}
+.db-flow-item--goal .f-txt{color:rgba(255,255,255,.8)!important}
+.db-flow-item .f-num{font-size:10px;font-weight:900;color:#0284c7;letter-spacing:.12em;margin-bottom:8px}
+.db-flow-item .f-ttl{font-size:13px;font-weight:700;color:#0d2137;margin-bottom:6px;line-height:1.4}
+.db-flow-item .f-txt{font-size:11px;color:#4a6070;line-height:1.6}
+.db-flow-arrow{display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:28px;font-weight:700;color:#0284c7;padding:4px 0;line-height:1}
+@media(max-width:600px){.db-flow-items{flex-direction:column}.db-flow-item{min-width:unset}}
+
+
+/* ── SERVICES ── */
+#services{background:linear-gradient(150deg,#e8f5ee 0%,#d1fae5 100%)}
+#services .section-label{color:#2e8b57}
+#services .section-title{color:#1a3a2a}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.service-card{
+ background:#fff;border-radius:16px;overflow:hidden;
+ box-shadow:var(--shadow);transition:.3s;
+ border:1px solid var(--gray2);
+}
+.service-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-6px)}
+.service-card-img{
+ height:160px;display:flex;align-items:center;justify-content:center;
+ font-size:52px;position:relative;
+}
+.service-card-img.c1{background:linear-gradient(135deg,#e8f0fb,#c5d8f5)}
+.service-card-img.c2{background:linear-gradient(135deg,var(--teal-light),#b8ede8)}
+.service-card-img.c3{background:linear-gradient(135deg,#fff4ed,#ffd6ba)}
+.service-card-img.c4{background:linear-gradient(135deg,var(--green-light),#b8e5c8)}
+.service-card-img.c5{background:linear-gradient(135deg,#f3e8ff,#ddb8f5)}
+.service-card-body{padding:24px}
+.service-card-tag{
+ font-size:11px;font-weight:700;letter-spacing:.1em;color:#0284c7;
+ text-transform:uppercase;margin-bottom:8px;
+}
+.service-card-title{font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px;line-height:1.4}
+.service-card-text{font-size:13px;color:var(--text2);line-height:1.7}
+
+/* ── REASONS ── */
+.reasons{background:#eaf6fb}
+.reasons-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.reason-card{
+ background:#fff;border-radius:14px;padding:28px 32px;
+ display:flex;gap:20px;align-items:flex-start;
+ box-shadow:var(--shadow);
+}
+.reason-num{
+ font-size:40px;font-weight:900;color:var(--gray2);
+ line-height:1;flex-shrink:0;font-family:'Noto Serif JP',serif;
+ min-width:48px;
+}
+.reason-ttl{font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px}
+.reason-txt{font-size:13px;color:var(--text2);line-height:1.7}
+.reason-tag{
+ display:inline-block;font-size:11px;font-weight:700;
+ padding:3px 10px;border-radius:20px;margin-bottom:10px;
+}
+.reason-tag.blue{background:var(--blue-light);color:var(--blue)}
+.reason-tag.teal{background:#e0f2fe;color:#0284c7}
+.reason-tag.orange{background:var(--orange-light);color:var(--orange)}
+.reason-tag.green{background:var(--green-light);color:var(--green)}
+
+/* ── CASES ── */
+.cases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.case-card{
+ background:#fff;border-radius:14px;overflow:hidden;
+ box-shadow:var(--shadow);border:1px solid var(--gray2);transition:.2s;
+}
+.case-card:hover{box-shadow:var(--shadow-lg)}
+.case-card-img{
+ height:140px;display:flex;align-items:center;justify-content:center;
+ font-size:48px;
+}
+.case-card-img.cc1{background:linear-gradient(135deg,#1a3a52,#0369a1)}
+.case-card-img.cc2{background:linear-gradient(135deg,#0a3d5c,#1a5fa8)}
+.case-card-img.cc3{background:linear-gradient(135deg,#2e5a1a,#2e8b57)}
+.case-card-body{padding:20px}
+.case-tag{
+ font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;
+ margin-bottom:10px;display:inline-block;
+}
+.case-tag.gov{background:#e8f0fb;color:#1a5fa8}
+.case-tag.corp{background:var(--orange-light);color:var(--orange)}
+.case-tag.school{background:var(--green-light);color:var(--green)}
+.case-title{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:6px;line-height:1.4}
+.case-text{font-size:13px;color:var(--text2);line-height:1.7;margin-bottom:12px}
+.case-result{
+ background:var(--gray);border-radius:8px;padding:10px 14px;
+ font-size:12px;color:var(--text2);
+ border-left:3px solid #0284c7;
+}
+.case-result strong{color:#0284c7;font-weight:700}
+
+/* ── CTA SECTION ── */
+.cta-section{
+ background:linear-gradient(150deg,#e8f4ff 0%,#eaf6fb 100%);
+ text-align:center;position:relative;overflow:hidden;
+}
+.cta-section .section-title{color:var(--navy)}
+.cta-section .section-sub{color:var(--text2);margin:0 auto 48px;text-align:center}
+.cta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:48px}
+.cta-card{
+ background:#fff;border:1px solid var(--gray2);
+ border-radius:14px;padding:24px 16px;text-align:center;
+ transition:.2s;cursor:pointer;
+}
+.cta-card:hover{background:var(--teal-light);border-color:var(--teal);transform:translateY(-4px)}
+.cta-card .icon{font-size:32px;margin-bottom:12px}
+.cta-card .ttl{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.cta-card .txt{font-size:12px;color:var(--text2);line-height:1.6}
+.cta-card .arrow{
+ display:inline-block;margin-top:12px;
+ font-size:12px;color:#0284c7;font-weight:700;
+}
+.cta-main-btn{
+ display:inline-flex;align-items:center;gap:10px;
+ background:var(--teal);color:#fff;
+ padding:18px 44px;border-radius:50px;font-size:17px;font-weight:700;
+ box-shadow:0 8px 32px rgba(2,132,199,.5);transition:.2s;
+}
+.cta-main-btn:hover{background:var(--teal2);transform:translateY(-3px)}
+
+/* ── PARTNERSHIP ── */
+.partnership{background:var(--gray)}
+.partnership-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.partner-card{
+ background:#fff;border-radius:14px;padding:28px;
+ box-shadow:var(--shadow);border-top:4px solid var(--teal);text-align:center;
+}
+.partner-icon{font-size:40px;margin-bottom:14px}
+.partner-ttl{font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px}
+.partner-txt{font-size:13px;color:var(--text2);line-height:1.7;margin-bottom:16px}
+.partner-btn{
+ display:inline-block;font-size:13px;font-weight:700;color:#0284c7;
+ border:2px solid var(--teal);padding:8px 20px;border-radius:20px;transition:.2s;
+}
+.partner-btn:hover{background:#0284c7;color:#fff}
+
+/* ── CONTACT ── */
+.contact{background:#fff}
+.contact-wrap{
+ max-width:760px;margin:0 auto;
+ background:var(--gray);border-radius:20px;padding:48px;
+}
+.contact-wrap h3{font-size:22px;font-weight:700;margin-bottom:8px;color:var(--navy)}
+.contact-wrap p{font-size:14px;color:var(--text2);margin-bottom:28px}
+.contact-tabs{display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap}
+.contact-tab{
+ padding:8px 18px;border-radius:20px;font-size:13px;font-weight:600;
+ border:2px solid var(--gray2);color:var(--text2);cursor:pointer;transition:.2s;background:#fff;
+}
+.contact-tab.active,.contact-tab:hover{border-color:var(--teal);color:var(--teal);background:var(--teal-light)}
+.contact-form{display:flex;flex-direction:column;gap:14px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-group{display:flex;flex-direction:column;gap:6px}
+.form-group label{font-size:13px;font-weight:600;color:var(--navy)}
+.form-group input,
+.form-group select,
+.form-group textarea{
+ padding:12px 16px;border:2px solid var(--gray2);border-radius:8px;
+ font-size:14px;font-family:inherit;color:var(--text);
+ background:#fff;transition:.2s;outline:none;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{border-color:var(--teal)}
+.form-group textarea{min-height:100px;resize:vertical}
+.form-submit{
+ background:var(--teal);color:#fff;border:none;
+ padding:15px;border-radius:8px;font-size:15px;font-weight:700;
+ cursor:pointer;transition:.2s;font-family:inherit;
+}
+.form-submit:hover{background:var(--teal2)}
+
+/* ── FOOTER ── */
+footer{
+ background:var(--navy);color:rgba(255,255,255,.7);
+ padding:48px 24px 24px;
+}
+.footer-grid{
+ max-width:1200px;margin:0 auto;
+ display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;
+ padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.1);
+ margin-bottom:24px;
+}
+.footer-brand .logo{font-size:18px;font-weight:700;color:#fff;margin-bottom:8px}
+.footer-brand .logo span{color:#38bdf8}
+.footer-brand p{font-size:13px;line-height:1.8}
+footer h4{font-size:13px;font-weight:700;color:#fff;margin-bottom:14px;letter-spacing:.05em}
+footer ul{list-style:none}
+footer ul li{margin-bottom:8px}
+footer ul li a{font-size:13px;color:rgba(255,255,255,.6);transition:.2s}
+footer ul li a:hover{color:var(--teal2)}
+.footer-bottom{
+ max-width:1200px;margin:0 auto;
+ display:flex;justify-content:space-between;align-items:center;
+ font-size:12px;color:rgba(255,255,255,.4);
+}
+
+/* ── FLOATING CTA ── */
+.floating-cta{
+ position:fixed;bottom:24px;right:24px;z-index:99;
+ display:flex;flex-direction:column;gap:10px;
+}
+.float-btn{
+ display:flex;align-items:center;gap:8px;
+ padding:12px 18px;border-radius:30px;font-size:13px;font-weight:700;
+ box-shadow:0 4px 20px rgba(0,0,0,.2);transition:.2s;cursor:pointer;
+}
+.float-btn:hover{transform:translateY(-3px)}
+.float-btn.primary{background:#0284c7;color:#fff}
+.float-btn.secondary{background:var(--navy);color:#fff;border:1px solid rgba(255,255,255,.2)}
+
+/* ── SCROLL ANIMATION ── */
+.fade-up{opacity:0;transform:translateY(30px);transition:.7s cubic-bezier(.25,.8,.25,1)}
+.fade-up.visible{opacity:1;transform:none}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+ .hero-container{grid-template-columns:1fr;gap:40px;padding:60px 20px}
+ .hero-visual{display:none}
+ .problem-grid{grid-template-columns:1fr}
+ .db-grid{grid-template-columns:1fr 1fr}
+ .services-grid{grid-template-columns:1fr 1fr}
+ .cases-grid{grid-template-columns:1fr 1fr}
+ .reasons-grid{grid-template-columns:1fr}
+ .cta-grid{grid-template-columns:1fr 1fr}
+ .partnership-grid{grid-template-columns:1fr}
+ .footer-grid{grid-template-columns:1fr 1fr}
+ .nav-links{display:none}
+ .nav-hamburger{display:flex}
+ .form-row{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+ section{padding:56px 16px}
+ .db-grid{grid-template-columns:1fr}
+ .services-grid{grid-template-columns:1fr}
+ .cases-grid{grid-template-columns:1fr}
+ .cta-grid{grid-template-columns:1fr 1fr}
+ .contact-wrap{padding:28px 20px}
+ .footer-grid{grid-template-columns:1fr}
+ .db-flow-items{flex-direction:column}
+ .db-flow-arrow{display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:28px;font-weight:700;color:#0284c7;padding:4px 0;line-height:1}
+ .hero-stats{gap:16px}
+ .hero-stat .num{font-size:24px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+ <div class="nav-logo">
+ <div class="nav-logo-text">
+ 減災教育普及協会
+ <span>NPO法人 | Disaster Education Association</span>
+ </div>
+ </div>
+ <div class="nav-links">
+ <a href="#services">活動内容</a>
+ <a href="#database">データベース</a>
+ <a href="#cases">導入事例</a>
+ <a href="#partnership">連携・支援</a>
+ <a href="#contact" class="nav-cta">相談する </a>
+ </div>
+ <div class="nav-hamburger" onclick="toggleMenu()">
+ <span></span><span></span><span></span>
+ </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+ <div class="hero-container">
+ <div class="hero-content">
+ <div class="hero-badge"> 日本最大級の防災教育データベース保有</div>
+ <h1>
+ 災害から命を守る力を<br>
+ <span class="accent">教育で育てる</span>
+ </h1>
+ <p class="hero-sub">
+ 学校・地域・企業に向けて実践型の減災教育と<br>
+ 避難訓練プログラムを届けます<br>
+ 全国自治体・学校・企業との連携実績日本一
+ </p>
+ <div class="hero-btns">
+ <a href="#contact" class="btn-primary"> 研修・講演を相談する</a>
+ <a href="#services" class="btn-secondary">活動内容を見る </a>
+ </div>
+ <div class="hero-stats">
+ <div class="hero-stat">
+ <div class="num">47<span>都道府県</span></div>
+ <div class="label">全国ネットワーク</div>
+ </div>
+ <div class="hero-stat-div"></div>
+ <div class="hero-stat">
+ <div class="num">10<span>万件+</span></div>
+ <div class="label">防災教育データ</div>
+ </div>
+ <div class="hero-stat-div"></div>
+ <div class="hero-stat">
+ <div class="num">20<span>年+</span></div>
+ <div class="label">活動実績</div>
+ </div>
+ </div>
+ </div>
+ <div class="hero-visual">
+ <div class="hero-card">
+ <div class="hero-card-title"> プラットフォーム データベース</div>
+ <div class="hero-db-items">
+ <div class="hero-db-item">
+ <span class="icon"></span>
+ <span class="text">全国自治体・行政パイプ</span>
+ <span class="count">47都道府県</span>
+ </div>
+ <div class="hero-db-item">
+ <span class="icon"></span>
+ <span class="text">学校・教育機関ネットワーク</span>
+ <span class="count">全国対応</span>
+ </div>
+ <div class="hero-db-item">
+ <span class="icon"></span>
+ <span class="text">賛助会員 企業データベース</span>
+ <span class="count">拡大中</span>
+ </div>
+ <div class="hero-db-item">
+ <span class="icon"></span>
+ <span class="text">防災教育 ビッグデータ</span>
+ <span class="count">数万件+</span>
+ </div>
+ </div>
+ </div>
+ <div class="hero-card2">
+ <span class="icon2"></span>
+ <div>
+ <div class="t1">徳島県と連携協力協定を締結</div>
+ <div class="t2">全国自治体との協定締結を順次拡大中</div>
+ </div>
+ </div>
+ </div>
+ </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem">
+ <div class="container">
+ <div class="problem-grid">
+ <div class="fade-up">
+ <span class="section-label">課題提示</span>
+ <div class="problem-quote">
+ 従来の避難訓練だけで<br>本当に想定外に<br>対応できるのか？
+ </div>
+ <p class="problem-text">地震津波火災豪雨災害時に必要なのはマニュアルを暗記することではなく<strong>自ら判断し行動できる力</strong>です</p>
+ <p class="problem-text">減災教育普及協会は学べば守れるという信念のもと<strong>知識を行動に変える実践型プログラム</strong>を全国に届けています</p>
+ </div>
+ <div class="problem-cards fade-up">
+ <div class="problem-card">
+ <span class="icon"></span>
+ <div>
+ <div class="ttl">形式的な訓練に終わっていませんか？</div>
+ <div class="txt">年1回の避難訓練だけでは実際の災害時に体が動かない体験・判断・行動の繰り返しが必要です</div>
+ </div>
+ </div>
+ <div class="problem-card">
+ <span class="icon"></span>
+ <div>
+ <div class="ttl">子どもに伝わる防災教育ができていますか？</div>
+ <div class="txt">難しい言葉や恐怖訴求ではなく子どもが自分ごととして考えられるプログラムが必要です</div>
+ </div>
+ </div>
+ <div class="problem-card">
+ <span class="icon"></span>
+ <div>
+ <div class="ttl">地域・企業・学校がバラバラに動いていませんか？</div>
+ <div class="txt">災害は行政区域をまたぎます自治体・学校・企業が連携した地域全体の防災力向上が求められています</div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+</section>
+
+<!-- DATABASE STRENGTH -->
+<section class="database" id="database">
+ <div class="container">
+ <div class="section-header center fade-up">
+ <span class="section-label">データベースの強み</span>
+ <h2 class="section-title" style="color:#fff">日本最大級の防災教育<br>プラットフォーム（データベース）</h2>
+ <p class="section-sub">20年以上の活動で蓄積した全国ネットワークとデータこれは他に代えられない協会最大の強みです</p>
+ </div>
+ <div class="db-hero-number fade-up">
+ <div class="big-num">日本一</div>
+ <div class="big-label">防災教育ネットワーク・データ保有</div>
+ <div class="big-sub">全国自治体・学校・企業・地域団体との連携実績 No.1</div>
+ </div>
+ <div class="db-grid fade-up">
+ <div class="db-card">
+ <div class="icon"></div>
+ <div class="ttl">全国自治体・行政パイプ</div>
+ <div class="num">47都道府県</div>
+ <div class="txt">内閣府・消防庁・文部科学省など国の機関から市区町村まで徳島県との連携協定締結を皮切りに全国展開中</div>
+ </div>
+ <div class="db-card">
+ <div class="icon"></div>
+ <div class="ttl">学校・教育機関ネットワーク</div>
+ <div class="num">全国対応</div>
+ <div class="txt">小学校から大学まで教育委員会ルートで一括展開できる体制を構築子どもたちへの防災教育を全国規模で実施</div>
+ </div>
+ <div class="db-card">
+ <div class="icon"></div>
+ <div class="ttl">賛助会員 企業データベース</div>
+ <div class="num">拡大中</div>
+ <div class="txt">防災グッズメーカー・保険会社・通信会社・住宅メーカーなど多様な業種の賛助会員と連携企業×自治体のマッチングも</div>
+ </div>
+ <div class="db-card">
+ <div class="icon"></div>
+ <div class="ttl">防災教育 アンケートデータ</div>
+ <div class="num">数千件+</div>
+ <div class="txt">避難訓練後のアンケート・理解度・行動変容データ地域別・年代別の防災意識データとして研究・政策にも活用可能</div>
+ </div>
+ <div class="db-card">
+ <div class="icon"></div>
+ <div class="ttl">地域別リスクデータ</div>
+ <div class="num">全国網羅</div>
+ <div class="txt">被害想定・地形・人口分布・建物構造データ保険会社・GIS会社・住宅メーカーへのデータ提供にも活用</div>
+ </div>
+ <div class="db-card">
+ <div class="icon"></div>
+ <div class="ttl">避難訓練 実績データ</div>
+ <div class="num">蓄積中</div>
+ <div class="txt">全国各地の避難訓練参加者数・行動パターン・改善点の記録次の訓練をより効果的にするためのエビデンスベースの改善提案が可能</div>
+ </div>
+ </div>
+ <div class="db-flow fade-up">
+      <div class="db-flow-title">データベースが生み出す価値の連鎖</div>
+      <div class="db-flow-items">
+        <div class="db-flow-item">
+          <div class="f-num">01</div>
+          <div class="f-ttl">全国から<br>データ収集</div>
+          <div class="f-txt">自治体・学校・企業から防災データを一元集約</div>
+        </div>
+        <div class="db-flow-arrow">&#8595;</div>
+        <div class="db-flow-item">
+          <div class="f-num">02</div>
+          <div class="f-ttl">AI分析・<br>インサイト抽出</div>
+          <div class="f-txt">地域リスク・行動パターンを自動分析</div>
+        </div>
+        <div class="db-flow-arrow">&#8595;</div>
+        <div class="db-flow-item">
+          <div class="f-num">03</div>
+          <div class="f-ttl">地域別<br>最適提案</div>
+          <div class="f-txt">その地域に必要な防災プログラムを提案</div>
+        </div>
+        <div class="db-flow-arrow">&#8595;</div>
+        <div class="db-flow-item">
+          <div class="f-num">04</div>
+          <div class="f-ttl">自治体・企業<br>マッチング</div>
+          <div class="f-txt">企業と自治体・学校を最適につなぐ</div>
+        </div>
+        <div class="db-flow-arrow">&#8595;</div>
+        <div class="db-flow-item db-flow-item--goal">
+          <div class="f-num">GOAL</div>
+          <div class="f-ttl">日本全体の<br>防災力向上</div>
+          <div class="f-txt">データが循環するたびに防災力が強くなる</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+ <div class="container">
+ <div class="section-header fade-up">
+ <span class="section-label">活動内容</span>
+ <h2 class="section-title">学校・企業・地域<br>すべてに届けるプログラム</h2>
+ <p class="section-sub">対象や目的に合わせて最適な減災教育プログラムをカスタマイズして提供します</p>
+ </div>
+ <div class="services-grid fade-up">
+ <div class="service-card">
+ <div class="service-card-img c1"></div>
+ <div class="service-card-body">
+ <div class="service-card-tag">学校向け</div>
+ <div class="service-card-title">学校・教育機関向け<br>減災教育プログラム</div>
+ <div class="service-card-text">小学校から高校まで年齢に合わせたカリキュラムYURETANを活用した体験型学習で子どもが自分ごととして防災を考える力を育てます</div>
+ </div>
+ </div>
+ <div class="service-card">
+ <div class="service-card-img c2"></div>
+ <div class="service-card-body">
+ <div class="service-card-tag">企業向け</div>
+ <div class="service-card-title">企業・法人向け<br>防災・BCP研修</div>
+ <div class="service-card-text">従業員の命を守り事業継続を確保するための実践的研修YURETA体験＋専門講師のセットで形式的な訓練を卒業できます</div>
+ </div>
+ </div>
+ <div class="service-card">
+ <div class="service-card-img c3"></div>
+ <div class="service-card-body">
+ <div class="service-card-tag">地域向け</div>
+ <div class="service-card-title">地域・自治体向け<br>ワークショップ</div>
+ <div class="service-card-text">自治会・町内会・防災士会など地域コミュニティでの実践的なワークショップ地域の絆を強め共助の力を育てます</div>
+ </div>
+ </div>
+ <div class="service-card">
+ <div class="service-card-img c4"></div>
+ <div class="service-card-body">
+ <div class="service-card-tag">体験プログラム</div>
+ <div class="service-card-title">YURETA体験会<br>子ども防災教育</div>
+ <div class="service-card-text">日本最大級の防災体験システムYURETAを活用地震・津波・火災などの疑似体験を通じて体で覚える防災教育を実現します</div>
+ </div>
+ </div>
+ <div class="service-card">
+ <div class="service-card-img c5"></div>
+ <div class="service-card-body">
+ <div class="service-card-tag">コンサルティング</div>
+ <div class="service-card-title">避難訓練<br>アップデート支援</div>
+ <div class="service-card-text">毎年同じ訓練になっていませんか？データに基づいた改善提案で形式的な訓練を実効性ある訓練に変えます</div>
+ </div>
+ </div>
+ </div>
+ </div>
+</section>
+
+<!-- REASONS -->
+<section class="reasons">
+ <div class="container">
+ <div class="section-header center fade-up">
+ <span class="section-label">選ばれる理由</span>
+ <h2 class="section-title">なぜ減災教育普及協会が<br>選ばれるのか</h2>
+ </div>
+ <div class="reasons-grid fade-up">
+ <div class="reason-card">
+ <div class="reason-num">01</div>
+ <div>
+ <div class="reason-tag teal">実績・信頼</div>
+ <div class="reason-ttl">日本最大のネットワークと20年の実績</div>
+ <div class="reason-txt">全国47都道府県の自治体・学校・企業との連携蓄積された防災教育データは日本一行政・学校関係者から圧倒的な信頼を得ています</div>
+ </div>
+ </div>
+ <div class="reason-card">
+ <div class="reason-num">02</div>
+ <div>
+ <div class="reason-tag blue">実践型</div>
+ <div class="reason-ttl">体験・判断・行動を育てる実践型プログラム</div>
+ <div class="reason-txt">マニュアル暗記ではなく実際の状況で判断できる力を育てますYURETAを活用した体験型学習で知識を行動に変えます</div>
+ </div>
+ </div>
+ <div class="reason-card">
+ <div class="reason-num">03</div>
+ <div>
+ <div class="reason-tag orange">対応力</div>
+ <div class="reason-ttl">学校・企業・自治体すべてに対応</div>
+ <div class="reason-txt">講演・研修・動画教材・ワークショップ・コンサルティングまで目的と対象に合わせた柔軟なプログラム設計が可能です</div>
+ </div>
+ </div>
+ <div class="reason-card">
+ <div class="reason-num">04</div>
+ <div>
+ <div class="reason-tag green">カスタマイズ</div>
+ <div class="reason-ttl">地域データに基づく最適提案</div>
+ <div class="reason-txt">全国の地域別リスクデータと訓練実績データを活用しその地域だからこそ必要な防災教育を提案できます</div>
+ </div>
+ </div>
+ <div class="reason-card">
+ <div class="reason-num">05</div>
+ <div>
+ <div class="reason-tag teal">親しみやすさ</div>
+ <div class="reason-ttl">子どもから高齢者まで伝わるやさしい設計</div>
+ <div class="reason-txt">恐怖訴求に頼らず学べば守れる行動できる人を育てる前向きな世界観で幅広い世代に届けます</div>
+ </div>
+ </div>
+ <div class="reason-card">
+ <div class="reason-num">06</div>
+ <div>
+ <div class="reason-tag blue">連携</div>
+ <div class="reason-ttl">産官学の連携で強固なエコシステム</div>
+ <div class="reason-txt">自治体・学校・企業・研究機関との連携で防災教育の普及から政策立案まで一気通貫したアプローチが可能です</div>
+ </div>
+ </div>
+ </div>
+ </div>
+</section>
+
+<!-- CASES -->
+<section id="cases">
+ <div class="container">
+ <div class="section-header fade-up">
+ <span class="section-label">導入事例</span>
+ <h2 class="section-title">全国の導入事例</h2>
+ <p class="section-sub">自治体・学校・企業など様な組織での実施事例をご紹介します</p>
+ </div>
+ <div class="cases-grid fade-up">
+ <div class="case-card">
+ <div class="case-card-img cc1"></div>
+ <div class="case-card-body">
+ <span class="case-tag gov">自治体</span>
+ <div class="case-title">徳島県との連携協力協定締結</div>
+ <div class="case-text">後藤田知事と江夏理事長のもと連携協力協定を締結県全体の防災教育カリキュラムを共同開発中</div>
+ <div class="case-result"><strong>効果：</strong>県内学校への一括展開・自治体職員研修の実施</div>
+ </div>
+ </div>
+ <div class="case-card">
+ <div class="case-card-img cc2"></div>
+ <div class="case-card-body">
+ <span class="case-tag corp">企業</span>
+ <div class="case-title">大手製造業 全社BCP研修</div>
+ <div class="case-text">全国10拠点の従業員向けにYURETA体験＋講師派遣のセット研修を実施形式的だった訓練を刷新</div>
+ <div class="case-result"><strong>効果：</strong>防災意識スコア42%向上・BCP策定完了</div>
+ </div>
+ </div>
+ <div class="case-card">
+ <div class="case-card-img cc3"></div>
+ <div class="case-card-body">
+ <span class="case-tag school">学校</span>
+ <div class="case-title">小学校 体験型防災授業</div>
+ <div class="case-text">YURETA体験会を活用した体験型授業を実施子どもたちが自分でどう行動するかを考えるワークショップ形式</div>
+ <div class="case-result"><strong>効果：</strong>家族に防災を話した児童92%・保護者満足度98%</div>
+ </div>
+ </div>
+ </div>
+ </div>
+</section>
+
+<!-- PARTNERSHIP / CTA -->
+<section class="cta-section">
+ <div class="container">
+ <div class="section-header center fade-up">
+ <span class="section-label" style="color:var(--teal)">参加・支援・連携</span>
+ <h2 class="section-title">一緒に日本の防災力を<br>高めましょう</h2>
+ <p class="section-sub">講演依頼から自治体連携賛助会員寄付まであなたの立場からできる形で参加してください</p>
+ </div>
+ <div class="cta-grid fade-up">
+ <div class="cta-card" onclick="location.href='#contact'">
+ <div class="icon"></div>
+ <div class="ttl">講演を依頼する</div>
+ <div class="txt">学校・企業・地域のイベントに講師を派遣します</div>
+ <div class="arrow">相談する </div>
+ </div>
+ <div class="cta-card" onclick="location.href='#contact'">
+ <div class="icon"></div>
+ <div class="ttl">研修を相談する</div>
+ <div class="txt">御社・学校に合わせた研修プログラムを設計します</div>
+ <div class="arrow">相談する </div>
+ </div>
+ <div class="cta-card" onclick="location.href='#contact'">
+ <div class="icon"></div>
+ <div class="ttl">賛助会員になる</div>
+ <div class="txt">全国ネットワークを活用したビジネス連携が可能です</div>
+ <div class="arrow">詳細を見る </div>
+ </div>
+ <div class="cta-card" onclick="location.href='#contact'">
+ <div class="icon"></div>
+ <div class="ttl">寄付・支援をする</div>
+ <div class="txt">減災教育の普及を資金面で支援してください</div>
+ <div class="arrow">支援する </div>
+ </div>
+ </div>
+ <div style="text-align:center">
+ <a href="#contact" class="cta-main-btn">まずは無料でご相談ください </a>
+ </div>
+ </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+ <div class="container">
+ <div class="section-header center fade-up">
+ <span class="section-label">お問い合わせ</span>
+ <h2 class="section-title">まずお気軽にご相談ください</h2>
+ <p class="section-sub">学校・自治体・企業・地域団体の方どんなご相談もお待ちしております</p>
+ </div>
+ <div class="contact-wrap fade-up">
+ <h3> 無料相談フォーム</h3>
+ <p>内容をお伝えいただければ担当者より2営業日以内にご連絡します</p>
+ <div class="contact-tabs">
+ <div class="contact-tab active" onclick="setTab(this)">学校・教育機関</div>
+ <div class="contact-tab" onclick="setTab(this)">自治体・行政</div>
+ <div class="contact-tab" onclick="setTab(this)">企業・法人</div>
+ <div class="contact-tab" onclick="setTab(this)">地域団体</div>
+ <div class="contact-tab" onclick="setTab(this)">賛助会員・支援</div>
+ </div>
+ <form class="contact-form" onsubmit="return false">
+ <div class="form-row">
+ <div class="form-group">
+ <label>お名前</label>
+ <input type="text" placeholder="山田 太郎">
+ </div>
+ <div class="form-group">
+ <label>組織名</label>
+ <input type="text" placeholder="○○市教育委員会">
+ </div>
+ </div>
+ <div class="form-row">
+ <div class="form-group">
+ <label>メールアドレス</label>
+ <input type="email" placeholder="example@mail.com">
+ </div>
+ <div class="form-group">
+ <label>お問い合わせ種別</label>
+ <select>
+ <option>講演・講師派遣の依頼</option>
+ <option>研修プログラムの相談</option>
+ <option>YURETA体験会の開催</option>
+ <option>自治体連携・協定</option>
+ <option>賛助会員について</option>
+ <option>その他</option>
+ </select>
+ </div>
+ </div>
+ <div class="form-group">
+ <label>ご相談内容</label>
+ <textarea placeholder="対象人数・時期・ご要望などお気軽にお書きください"></textarea>
+ </div>
+ <button type="submit" class="form-submit">送信する </button>
+ </form>
+ </div>
+ </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+ <div class="footer-grid">
+ <div class="footer-brand">
+ <div class="logo">減災教育普及<span>協会</span></div>
+ <p>NPO法人 減災教育普及協会<br>災害から命を守る力を教育で育てる<br>全国の自治体・学校・企業と連携し<br>日本の防災力を高め続けます</p>
+ </div>
+ <div>
+ <h4>活動内容</h4>
+ <ul>
+ <li><a href="#">学校向けプログラム</a></li>
+ <li><a href="#">企業向け研修</a></li>
+ <li><a href="#">地域ワークショップ</a></li>
+ <li><a href="#">YURETA体験会</a></li>
+ <li><a href="#">避難訓練支援</a></li>
+ </ul>
+ </div>
+ <div>
+ <h4>協会について</h4>
+ <ul>
+ <li><a href="#">協会概要</a></li>
+ <li><a href="#">理事長・スタッフ</a></li>
+ <li><a href="#">データベース</a></li>
+ <li><a href="#">導入事例</a></li>
+ <li><a href="#">お知らせ</a></li>
+ </ul>
+ </div>
+ <div>
+ <h4>参加・支援</h4>
+ <ul>
+ <li><a href="#">賛助会員になる</a></li>
+ <li><a href="#">寄付・支援</a></li>
+ <li><a href="#">ボランティア</a></li>
+ <li><a href="#">お問い合わせ</a></li>
+ <li><a href="#">プライバシー</a></li>
+ </ul>
+ </div>
+ </div>
+ <div class="footer-bottom">
+ <span>© 2024 NPO法人 減災教育普及協会. All rights reserved.</span>
+ <span>Powered by YURETA Platform</span>
+ </div>
+</footer>
+
+<!-- FLOATING CTA -->
+<div class="floating-cta">
+ <a href="#contact" class="float-btn primary"> 相談する</a>
+</div>
+
+<script>
+// Scroll animation
+const observer = new IntersectionObserver((entries) => {
+ entries.forEach((e, i) => {
+ if(e.isIntersecting){
+ setTimeout(() => e.target.classList.add('visible'), i * 80);
+ }
+ });
+}, {threshold: 0.1});
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// Contact tab
+function setTab(el){
+ document.querySelectorAll('.contact-tab').forEach(t => t.classList.remove('active'));
+ el.classList.add('active');
+}
+
+// Mobile menu
+function toggleMenu(){
+ const links = document.querySelector('.nav-links');
+ if(links.style.display === 'flex'){
+ links.style.display = '';
+ } else {
+ links.style.cssText = 'display:flex;flex-direction:column;position:absolute;top:64px;left:0;right:0;background:rgba(13,33,55,.97);padding:16px;gap:4px;z-index:99';
+ }
+}
+
+// Floating CTA hide on hero
+const floatCta = document.querySelector('.floating-cta');
+window.addEventListener('scroll', () => {
+ floatCta.style.opacity = window.scrollY > 400 ? '1' : '0';
+ floatCta.style.pointerEvents = window.scrollY > 400 ? 'all' : 'none';
+});
+floatCta.style.opacity = '0';
+floatCta.style.transition = 'opacity .3s';
+</script>
+</body>
+</html>
